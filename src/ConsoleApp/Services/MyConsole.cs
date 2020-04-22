@@ -2,10 +2,11 @@ using System;
 
 namespace ConsoleApp.Services
 {
-    interface IMyConsole
+    public interface IMyConsole
     {
         void Clear();
         void WriteLine(string line);
+        void WriteEmptyLine();
         string ReadLine();
     }
     public class MyConsole:IMyConsole
@@ -18,6 +19,11 @@ namespace ConsoleApp.Services
         public void WriteLine(string line)
         {
            Console.WriteLine(line);
+        }
+
+        public void WriteEmptyLine()
+        {
+            Console.WriteLine();
         }
 
         public string ReadLine()

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using ConsoleApp.Database;
 using ConsoleApp.Services;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+[assembly:InternalsVisibleTo("ConsoleApp.Test")]
 namespace ConsoleApp
 {
     public interface IProgram

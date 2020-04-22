@@ -4,12 +4,6 @@ using Microsoft.Extensions.Logging;
 
 namespace ConsoleApp.Services
 {
-    public enum MenuChoices
-    {
-        ListTodos = 0,
-        AddTodo = 1,
-        Exit = 3
-    }
     public interface IMenu
     {
         void PrintMenu();
@@ -17,32 +11,34 @@ namespace ConsoleApp.Services
     }
     class Menu:IMenu
     {
+        private readonly IMyConsole _console;
         private readonly ILogger _logger;
 
-        public Menu(ILoggerFactory loggerFactory)
+        public Menu(ILoggerFactory loggerFactory, IMyConsole console)
         {
+            _console = console;
             _logger = loggerFactory.CreateLogger<Menu>();
         }
 
         public void PrintMenu()
         {
-            Console.WriteLine();
-            Console.WriteLine("Please make a selection and press enter.");
+            _console.WriteEmptyLine();
+            _console.WriteLine("Please make a selection and press enter.");
             PrintChoices();
         }
 
         private void PrintChoices()
         {
-            Console.WriteLine("\t1) List Todos");
-            Console.WriteLine("\t2) Add Todo");
-            Console.WriteLine("\t3) Exit");
+            _console.WriteLine("\t1) List Todos");
+            _console.WriteLine("\t2) Add Todo");
+            _console.WriteLine("\t3) Exit");
         }
 
         public MenuChoices AwaitValidInput()
         {
             try
             {
-                var input = Console.ReadLine();
+                var input = _console.ReadLine();
                 if (string.IsNullOrWhiteSpace(input) || input.Length < 1)
                 {
 
@@ -73,8 +69,8 @@ namespace ConsoleApp.Services
 
         private void Error()
         {
-            Console.Clear();
-            Console.WriteLine("Please make a valid selection");
+            _console.Clear();
+            _console.WriteLine("Please make a valid selection");
             PrintChoices();
         }
     }

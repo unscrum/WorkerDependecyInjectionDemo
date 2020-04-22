@@ -4,7 +4,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>ConsoleApp</RootNamespace>
-        <AssemblyName>Worker</AssemblyName>
+        <AssemblyName>ConsoleApp</AssemblyName>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <Deterministic>true</Deterministic>
         <IsPackable>false</IsPackable>
