@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "src\Worker\Worker.csproj", "{FB77440C-F930-4D40-8CB8-BCF448ED1A40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{DFD1EEF3-8876-4631-8D6D-351415FAB2EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FB77440C-F930-4D40-8CB8-BCF448ED1A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB77440C-F930-4D40-8CB8-BCF448ED1A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB77440C-F930-4D40-8CB8-BCF448ED1A40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD1EEF3-8876-4631-8D6D-351415FAB2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD1EEF3-8876-4631-8D6D-351415FAB2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD1EEF3-8876-4631-8D6D-351415FAB2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD1EEF3-8876-4631-8D6D-351415FAB2EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

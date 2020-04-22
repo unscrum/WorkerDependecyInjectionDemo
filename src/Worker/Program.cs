@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Worker.Services;
 
 namespace Worker
 {
@@ -61,7 +62,7 @@ namespace Worker
             }
             finally
             {
-                // Explicitly call Flush() followed by sleep is required in Console Apps.
+                // Explicitly call Flush() followed by sleep is required in ConsoleApp Apps.
                 // This is to ensure that even if application terminates, telemetry is sent to the back-end.
                 channel.Flush();
                 Thread.Sleep(5000);

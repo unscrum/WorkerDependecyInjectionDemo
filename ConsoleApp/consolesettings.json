@@ -1,24 +1,16 @@
 {
     "Logging": {
         "LogLevel": {
-            "Default": "Warning",
+            "Default": "Error",
             "System": "Error",
             "Microsoft": "Error"
         },
-        "ApplicationInsights": {
-            "LogLevel": {
-                "Default": "Information"
-            }
-        },
         "Console": {
             "LogLevel": {
-                "Default": "Warning",
+                "Default": "Error",
                 "System": "Error",
                 "Microsoft": "Error"
             }
         }
-    },
-    "ApplicationInsights": {
-        "InstrumentationKey": ""
     }
 }

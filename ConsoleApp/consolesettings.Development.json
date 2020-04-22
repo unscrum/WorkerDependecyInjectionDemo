@@ -2,13 +2,10 @@
     "Logging": {
         "Console": {
             "LogLevel": {
-                "Default": "Debug",
+                "Default": "Information",
                 "System": "Warning",
                 "Microsoft": "Warning"
             }
         }
-    },
-    "ApplicationInsights": {
-        "InstrumentationKey": "9a0eb9ac-fa15-41f0-a824-95d78bb2805c"
     }
 }

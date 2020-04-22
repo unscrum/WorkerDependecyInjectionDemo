@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Microsoft.ApplicationInsights;
 
-namespace Worker
+namespace Worker.Services
 {
     internal interface IPickANumber
     {
