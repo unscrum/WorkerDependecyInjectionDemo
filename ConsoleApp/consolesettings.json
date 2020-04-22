@@ -1,13 +1,15 @@
 {
     "Logging": {
         "LogLevel": {
-            "Default": "Error",
+            "Default": "Warning",
+            "ConsoleApp": "Warning",
             "System": "Error",
             "Microsoft": "Error"
         },
         "Console": {
             "LogLevel": {
-                "Default": "Error",
+                "Default": "Warning",
+                "ConsoleApp": "Warning",
                 "System": "Error",
                 "Microsoft": "Error"
             }
