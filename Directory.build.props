@@ -11,11 +11,11 @@ furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.</Copyright>
-    <PackageProjectUrl>https://github.com/unscrum/MultitargetingDemo</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/unscrum/MultitargetingDemo</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/unscrum/WorkerDependecyInjectionDemo</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/unscrum/WorkerDependecyInjectionDemo</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Authors>Jay Brummels</Authors>
-    <Product>Multi Targeting Demo</Product>
+    <Product>Worker Dependecy Injection Demo</Product>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Version>1.0.0.0</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
