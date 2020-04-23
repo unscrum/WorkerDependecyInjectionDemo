@@ -42,7 +42,7 @@ The two share a lot of the same components
 - Azure Application Configuration
 - AWS Parameter Store
           
-2. Can be built more than once allowing to use settings in the first build to creat the second
+2. Can be built more than once allowing to use settings in the first build to create the second
         
         var configurationBuilder = new ConfigurationBuilder()
           .AddEnvironmentVariables("DOTNETCORE_")
@@ -92,7 +92,7 @@ Can be configured
 - With Configuration Builder
 - In Code
 
-Also allows log level per namespace, allowing you to override log levels in a tree structure.  In the Example Below you'd get all querys and commands from Entity Framework but only Errors from the rest of Microsoft Components
+Also allows log level per namespace, allowing you to override log levels in a tree structure.  In the Example Below you'd get all queries and commands from Entity Framework but only Errors from the rest of Microsoft Components
         
         "Microsoft": "Error",
         "Microsoft.EntityFrameworkCore.Database": "Information"
