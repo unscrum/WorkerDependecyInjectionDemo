@@ -39,10 +39,12 @@ namespace Worker
                     })
                     .ConfigureLogging((hostContext, logging) =>
                     {
+                        var logConfig = hostContext.Configuration.GetSection("Logging");
+
                         logging
-                            .AddConfiguration(hostContext.Configuration.GetSection("Logging"))
-                            .AddConsole()
+                            .AddConfiguration(logConfig)
                             .AddDebug()
+                            .AddConsole()
                             .AddEventSourceLogger()
                             .AddApplicationInsights();
                     })

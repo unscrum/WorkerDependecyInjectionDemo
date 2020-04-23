@@ -35,6 +35,8 @@
     <ItemGroup>
       <Content Include="appsettings.json" CopyToOutputDirectory="Always" />
       <Content Include="appsettings.Development.json" CopyToOutputDirectory="Always" />
+      <Content Include="appsettings.Production.json" CopyToOutputDirectory="Always" />
+      <Content Include="appsettings.Staging.json" CopyToOutputDirectory="Always" />
     </ItemGroup>
     
     
