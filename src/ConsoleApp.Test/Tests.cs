@@ -13,8 +13,6 @@ namespace ConsoleApp.Test
     [TestFixture]
     public class Tests
     {
-        
-       
         [Test]
         public async Task Test_List()
         {

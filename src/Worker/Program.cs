@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ApplicationInsights.Channel;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Worker.Services;
 
+[assembly:InternalsVisibleTo("Worker.Test")]
 namespace Worker
 {
     internal class Program
@@ -56,6 +58,7 @@ namespace Worker
                             })
                             .AddSingleton<IPickANumber, PickANumber>()
                             .AddTransient<ILooper, Looper>()
+                            .AddTransient<IMyTelemetry, MyTelemetry>()
                             .AddHostedService<Worker>();
                     })
                     .RunConsoleAsync();

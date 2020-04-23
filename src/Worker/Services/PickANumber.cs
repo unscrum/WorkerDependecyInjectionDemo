@@ -1,22 +1,21 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using Microsoft.ApplicationInsights;
 
 namespace Worker.Services
 {
-    internal interface IPickANumber
+    public interface IPickANumber
     {
         int Random();
     }
 
     internal class PickANumber : IPickANumber
     {
-        private readonly TelemetryClient _telemetryClient;
-        private readonly IDictionary<int, Metric> _dictionary;
-        public PickANumber(TelemetryClient telemetryClient)
+        private readonly IMyTelemetry _telemetryClient;
+        private readonly IDictionary<int, IMyMetric> _dictionary;
+        public PickANumber(IMyTelemetry telemetryClient)
         {
             _telemetryClient = telemetryClient;
-            _dictionary = new Dictionary<int, Metric>();
+            _dictionary = new Dictionary<int, IMyMetric>();
         }
 
         private void Increment(int number)

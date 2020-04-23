@@ -1,11 +1,10 @@
 using System;
 using System.Threading;
-using Microsoft.ApplicationInsights;
 using Microsoft.Extensions.Logging;
 
 namespace Worker.Services
 {
-    internal interface ILooper
+    public interface ILooper
     {
         bool Running { get; set; }
         void DoActualLoopWork();
@@ -14,10 +13,10 @@ namespace Worker.Services
     internal class Looper : ILooper
     {
         private readonly IPickANumber _pickANumber;
-        private readonly Metric _metric;
+        private readonly IMyMetric _metric;
         private readonly ILogger _logger;
 
-        public Looper(ILoggerFactory loggerFactory, IPickANumber pickANumber, TelemetryClient telemetryClient)
+        public Looper(ILoggerFactory loggerFactory, IPickANumber pickANumber, IMyTelemetry telemetryClient)
         {
             _pickANumber = pickANumber;
             _metric = telemetryClient.GetMetric($"{nameof(Looper)}.RunDuration");
