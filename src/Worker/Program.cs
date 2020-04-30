@@ -18,8 +18,7 @@ namespace Worker
         private static async Task Main(string[] args)
         {
             // Channel is explicitly configured to do flush on it later.
-            var channel = new InMemoryChannel();
-            channel.SendingInterval = TimeSpan.FromSeconds(10);
+            var channel = new InMemoryChannel {SendingInterval = TimeSpan.FromSeconds(10)};
 
             try
             {
@@ -36,6 +35,12 @@ namespace Worker
                             .AddJsonFile("appsettings.json", false, true)
                             .AddJsonFile($"appsettings.{hostContext.HostingEnvironment.EnvironmentName}.json",
                                 false, true);
+                        
+                        //optionally add in azure app config by setting a conneciton string AppConfig
+                        var appConfig = configuration.Build().GetConnectionString("AppConfig");
+                        if(!string.IsNullOrWhiteSpace(appConfig))
+                            configuration.AddAzureAppConfiguration(appConfig);
+
                     })
                     .ConfigureLogging((hostContext, logging) =>
                     {

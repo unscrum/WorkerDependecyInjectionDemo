@@ -107,6 +107,49 @@ For hosted services there is a Host Builder it breaks up
 - Services
     - Adds a special type of registration for IHostedService
     
+            await new HostBuilder().ConfigureHostConfiguration(configuration =>
+            {
+                //Get your enviornment variables with command line overrides
+                configuration
+                    .AddEnvironmentVariables("DOTNETCORE_")
+                    .AddCommandLine(args);
+            })
+            .ConfigureAppConfiguration((hostContext, configuration) =>
+            {
+                //get your config files, per environment
+                configuration
+                    .AddJsonFile("appsettings.json", false, true)
+                    .AddJsonFile($"appsettings.{hostContext.HostingEnvironment.EnvironmentName}.json",
+                        false, true);
+                
+                //optionally add in azure app config by setting a connection string AppConfig
+                var appConfig = configuration.Build().GetConnectionString("AppConfig");
+                if(!string.IsNullOrWhiteSpace(appConfig))
+                    configuration.AddAzureAppConfiguration(appConfig);
+    
+            })
+            .ConfigureLogging((hostContext, logging) =>
+            {
+                //setup logging including azure monitor
+                var logConfig = hostContext.Configuration.GetSection("Logging");
+    
+                logging
+                    .AddConfiguration(logConfig)
+                    .AddDebug()
+                    .AddConsole()
+                    .AddEventSourceLogger()
+                    .AddApplicationInsights();
+            })
+            .ConfigureServices((hostContext, services) =>
+            {
+                //register telemetry, your dependencies and your HostedService
+                services
+                    .AddApplicationInsightsTelemetryWorkerService()
+                    .AddSingleton<IMyDependency1, MyDependency1>()
+                    .AddHostedService<MyWoker>();
+            })
+            .RunConsoleAsync();
+    
  Available out of the box IHostedServices
  - ASP.NETcore - Microsoft.AspNetCore
  - WebJobs - Microsoft.Azure.WebJobs.Core
