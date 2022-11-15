@@ -73,7 +73,7 @@ namespace ConsoleApp
 
         public async Task RunAsync()
         {
-            _logger.LogInformation("Starting up Program.");
+            _logger.LogInformation("Starting up Program");
             _console.Clear();
             _console.WriteLine("Welcome to the TODO List"); 
             MenuChoices choice;

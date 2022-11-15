@@ -1,6 +1,6 @@
 # Worker Dependency Injection Demo
 
-.NETcore gives us really cool out of the box dependency injection, but its is really only wired up for you with ASP.NET.
+.NET Core gives us really cool out of the box dependency injection, but its is really only wired up for you with ASP.NET.
 This repo will show you two ways to wire it up for service workers.
 
 ## What kinds of services will this approach work for

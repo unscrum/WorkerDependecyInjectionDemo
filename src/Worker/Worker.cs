@@ -19,7 +19,7 @@ namespace Worker
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Worker is starting up.");
+            _logger.LogInformation("Worker is starting up");
             _looper.Running = true;
             Task.Factory.StartNew(_looper.DoActualLoopWork, cancellationToken);
 
@@ -28,7 +28,7 @@ namespace Worker
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Worker is stopping.");
+            _logger.LogInformation("Worker is stopping");
             _looper.Running = false;
             Thread.Sleep(1000);
             return Task.CompletedTask;
