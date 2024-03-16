@@ -62,8 +62,8 @@ namespace ConsoleApp.Test
             
             console.Verify(p => p.WriteLine("Enter a todo item, then press enter:"), Times.Once);
             console.Verify(p => p.ReadLine(), Times.Once);
-            Assert.AreEqual(1,await ctx.ToDos.CountAsync());
-            Assert.AreEqual("New TODO",await ctx.ToDos.Select(p=>p.Text).FirstAsync());
+            Assert.That(1, Is.EqualTo(await ctx.ToDos.CountAsync()));
+            Assert.That("New TODO", Is.EqualTo(await ctx.ToDos.Select(p=>p.Text).FirstAsync()));
 
         }
         
@@ -91,7 +91,7 @@ namespace ConsoleApp.Test
             var menu = new Menu(NullLoggerFactory.Instance, console.Object);
             console.Setup(p => p.ReadLine()).Returns(value.ToString);
             
-            Assert.AreEqual((MenuChoices)value, menu.AwaitValidInput());
+            Assert.That((MenuChoices)value,  Is.EqualTo(menu.AwaitValidInput()));
         }
         [Test]
         public async Task Test_Program_Exit()

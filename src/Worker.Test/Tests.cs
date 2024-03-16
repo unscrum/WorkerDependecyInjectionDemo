@@ -69,9 +69,9 @@ namespace Worker.Test
         {
             var mtm = new MyTelemetry(new TelemetryClient(TelemetryConfiguration.CreateDefault()));
             var met = mtm.GetMetric("foo");
-            Assert.IsInstanceOf<MyMetric>(met);
+            Assert.That(met, Is.InstanceOf<MyMetric>());
             var mymet = (MyMetric) met;
-            Assert.IsNotNull(mymet.Metric);
+            Assert.That(mymet.Metric, Is.Not.Null);
         }
         
         [Test]
